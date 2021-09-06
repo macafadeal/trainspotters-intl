@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <button class="col-4">
+      <div>
+        <h2>Resend sign up confirmation instructions</h2>
+      </div>
+
+      <div>
+        <%= simple_form_for(resource, as: resource_name, url:
+        confirmation_path(resource_name), html: { method: :post }) do |f| %> <%=
+        f.error_notification %> <%= f.full_error :confirmation_token %>
+      </div>
+
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true, value:
+        (resource.pending_reconfirmation? ? resource.unconfirmed_email :
+        resource.email), input_html: { autocomplete: "email" :placeholder
+        "email@domain.com" } %>
+      </div>
+
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-warning"></button>
+            <%= f.button :submit, "Resend sign up confirmation instructions" %>
+          </button>
+        </div>
+
+      <div>
+        <% end %> <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
