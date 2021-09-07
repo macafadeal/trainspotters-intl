@@ -6,4 +6,6 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
+
+  has_many :train_entries
 end
