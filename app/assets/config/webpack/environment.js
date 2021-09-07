@@ -1,15 +1,15 @@
 // config/webpack/environment.js
-const { environment } = require("@rails/webpacker");
+import { environment } from '@rails/webpacker'
 
 // Bootstrap 4 has a dependency over jQuery & Popper.js:
-const webpack = require("webpack");
+import { ProvidePlugin } from 'webpack'
 environment.plugins.prepend(
-  "Provide",
-  new webpack.ProvidePlugin({
-    $: "jquery",
-    jQuery: "jquery",
-    Popper: ["popper.js", "default"],
+  'Provide',
+  new ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    Popper: ['popper.js', 'default']
   })
-);
+)
 
-module.exports = environment;
+export default environment
