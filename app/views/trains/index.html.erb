@@ -1,0 +1,37 @@
+<br />
+
+<div>
+  <div class="text-center">
+    <h1>List of entries</h1>
+  </div>
+</div>
+<% @trains.each do |train| %> <%= link_to train_path(train) do %>
+<div class="card-train mx-auto">
+    <div class="text-left text-justify">
+      <div>
+        <img
+          src="https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg"
+          alt="..."
+          class="card-img-top"
+        />
+      </div>
+      <br />
+      <div>
+        <h5 class="card-title">Manufacturer:</h5>
+        <p class="card-text"><%= train.manufacturer %></p>
+      </div>
+      <div>
+        <h5 class="card-title">Series:</h5>
+        <p class="card-text"><%= train.series %></p>
+      </div>
+      <div>
+        <h5 class="card-title">Main operator:</h5>
+        <p class="card-text"><%= train.main_operator %></p>
+      </div>
+    </div>
+    <div class="float-right">
+      <div></div>
+    </div>
+  </div>
+</div>
+<% end %> <% end %>

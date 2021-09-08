@@ -21,8 +21,9 @@ SimpleForm.setup do |config|
   config.boolean_label_class = 'form-check-label'
 
   # How the label text should be generated altogether with the required text.
-  config.label_text =
-    lambda { |label, required, explicit_label| "#{label} #{required}" }
+  config.label_text = lambda { |label, required, _explicit_label|
+    "#{label} #{required}"
+  }
 
   # Define the way to render check boxes / radio buttons with labels.
   config.boolean_style = :inline
@@ -169,8 +170,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
     b.wrapper tag: 'div',
-              class:
-                'd-flex flex-row justify-content-between align-items-center' do |ba|
+              class: 'd-flex flex-row justify-content-between align-items-center' do |ba|
       ba.use :input,
              class: 'form-control mx-1',
              error_class: 'is-invalid',
@@ -345,8 +345,7 @@ SimpleForm.setup do |config|
     b.use :label, class: 'col-sm-3 col-form-label'
     b.wrapper :grid_wrapper, tag: 'div', class: 'col-sm-9' do |ba|
       ba.wrapper tag: 'div',
-                 class:
-                   'd-flex flex-row justify-content-between align-items-center' do |bb|
+                 class: 'd-flex flex-row justify-content-between align-items-center' do |bb|
         bb.use :input,
                class: 'form-control mx-1',
                error_class: 'is-invalid',
@@ -554,8 +553,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
     b.wrapper tag: 'div',
-              class:
-                'd-flex flex-row justify-content-between align-items-center' do |ba|
+              class: 'd-flex flex-row justify-content-between align-items-center' do |ba|
       ba.use :input,
              class: 'custom-select mx-1',
              error_class: 'is-invalid',
