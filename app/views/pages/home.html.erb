@@ -1,0 +1,53 @@
+<head>
+  <title>Trainspotters Int'l | Home </title>
+</head>
+
+<br />
+<!--
+<div>
+  <div class="text-center">
+    <h1></h1>
+    <br />
+    <h2></h2>
+    <br />
+    <h3></h3>
+  </div>
+</div> -->
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1563741589433-9ef15d729e26?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=802&q=80);">
+  <div class="container text-center">
+    <h1>Welcome to Trainspotters Int'l!</h1>
+    <p>Have a look below, at our presently available entries.</p>
+    <p>Feel free to sign up or log in, and add in your own to our catalog!</p>
+  </div>
+</div>
+
+
+<% Train.all.each do |train| %>
+
+<%= link_to train do %>
+
+<div class="card-train mx-auto">
+  <div class="text-left text-justify">
+    <div>
+      <h5 class="card-title">Manufacturer:</h5>
+      <p class="card-text"><%= train.manufacturer %></p>
+    </div>
+    <br />
+    <div>
+      <h5 class="card-title">Series:</h5>
+      <p class="card-text"><%= train.series %></p>
+    </div>
+    <br />
+    <div>
+      <h5 class="card-title">Main operator:</h5>
+      <p class="card-text"><%= train.main_operator %></p>
+    </div>
+  </div>
+</div>
+</div>
+<% end %> <% end %>
+
+<br />
+
+<%= render "devise/shared/links" %>

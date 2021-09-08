@@ -1,4 +1,4 @@
-module.exports = function (api) {
+export default function (api) {
   const validEnv = ["development", "test", "production"];
   const currentEnv = api.env();
   const isDevelopmentEnv = api.env("development");
@@ -79,4 +79,4 @@ module.exports = function (api) {
       ],
     ].filter(Boolean),
   };
-};
+}

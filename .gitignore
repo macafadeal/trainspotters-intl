@@ -41,8 +41,6 @@ yarn-debug.log*
 *.swp
 .DS_Store
 
-
-
 # https://github.com/github/gitignore/blob/master/Rails.gitignore
 *.rbc
 capybara-*.html
@@ -114,8 +112,6 @@ yarn-debug.log*
 !/storage/.keep
 /public/uploads
 
-
-
 # https://github.com/github/gitignore/blob/master/Ruby.gitignore
 *.gem
 *.rbc
@@ -173,3 +169,4 @@ build-iPhoneSimulator/
 
 # Used by RuboCop. Remote config files pulled in from inherit_from directive.
 # .rubocop-https?--*
+.env*

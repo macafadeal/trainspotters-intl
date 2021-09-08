@@ -1,0 +1,41 @@
+<head>
+  <title>Trainspotters Int'l | List of entries </title>
+</head>
+
+
+<div class="row">
+<% @trains.each do |train| %>
+
+<%= link_to train do %>
+
+<div class="col-6 offset-3">
+  <div class="card-train">
+      <% if train.photo.key %>
+      <%= cl_image_tag train.photo.key %>
+      <% else %>
+      <%= image_tag "https://images.unsplash.com/photo-1474487548417-781cb71495f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1749&q=80" %>
+      <% end %>
+    <div class="card-train-infos">
+      <div>
+        <div>
+          <h2>Manufacturer:</h2>
+          <p><%= train.manufacturer %></p>
+        </div>
+        <div>
+          <h2>Series:</h2>
+          <p><%= train.series %></p>
+        </div>
+        <div>
+          <h2>Main operator:</h2>
+          <p><%= train.main_operator %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<% end %>
+<% end %>
+</div>
+
+<%= render "devise/shared/links" %>

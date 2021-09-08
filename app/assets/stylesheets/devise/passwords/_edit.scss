@@ -1,0 +1,66 @@
+h1 {
+  color: black;
+  margin-bottom: 10%;
+  text-align: center !important;
+}
+
+h5 {
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+.card-update {
+  margin-left: 20%;
+  margin-right: 20%;
+  color: black;
+  background-color: whitesmoke;
+  padding: 20px 5px 5px 20px;
+  box-shadow: 4px 4px 8px gray;
+  max-width: 45%;
+  align-self: auto;
+  border-radius: 30px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.card-title {
+  font-weight: bold;
+  line-height: 10pt;
+}
+
+.card-body {
+  line-height: normal;
+}
+
+.update-button {
+  text-align: left;
+  margin-left: 0% !important;
+  margin-right: 0% !important;
+  padding: 2.5px;
+  border-style: solid;
+  border-color: darkgray;
+  border-width: 1px;
+  box-shadow: 1px 1px 2px gray;
+  border-radius: 2px;
+  width: fit-content !important;
+}
+
+.update-button:link {
+  text-decoration: none;
+}
+
+.btn {
+  margin-left: 0% !important;
+  margin-right: 0% !important;
+  text-align: unset !important;
+  max-width: unset !important;
+}
+
+.form-control {
+  max-width: 70%;
+}
