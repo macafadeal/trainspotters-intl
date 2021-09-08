@@ -1,13 +1,21 @@
 class TrainsController < ApplicationController
   def index
-    @trains = TrainEntry.all
+    @trains = Train.all
   end
 
   def show
-    @train = TrainEntry.find(params[:id])
+    @train = Train.find(params[:id])
   end
 
   def alphabetize
-    @trains = TrainEntry.sort
+    @trains = Train.sort
+  end
+
+  def new
+    @train = Train.new
+  end
+
+  def create
+    raise
   end
 end

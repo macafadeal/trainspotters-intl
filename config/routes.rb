@@ -6,7 +6,7 @@ Rails
 
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-    resources :trains, only: %i[index show]
+    resources :trains, only: %i[new create index show]
 
     resources :pages, only: %i[dashboard]
   end

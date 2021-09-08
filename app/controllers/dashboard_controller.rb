@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
   def show
-    @train = TrainEntry.find(params[:id])
+    @train = Train.find(params[:id])
   end
 end

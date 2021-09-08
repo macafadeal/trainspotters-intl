@@ -4,6 +4,7 @@
 
 .h1 {
   color: black;
+  margin-bottom: 10%;
 }
 
 .h5 {
@@ -15,10 +16,11 @@
 }
 
 .card-train {
-  margin: 20%;
+  margin-left: 20%;
+  margin-right: 20%;
   color: black;
   background-color: whitesmoke;
-  padding: 15px 5px 5px 15px;
+  padding: 20px 5px 5px 20px;
   box-shadow: 2px 2px 4px gray;
   max-width: 45%;
   align-self: auto;
@@ -45,4 +47,32 @@ a:link {
 
 .card-body {
   line-height: normal;
+}
+
+.form-control {
+  margin-left: 20%;
+  margin-right: 20%;
+  max-width: 45%;
+}
+.form-label {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.form-text {
+  text-align: center;
+  font-size: 80%;
+  margin: auto;
+}
+
+.btn {
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+  max-width: 45%;
+  align-self: auto;
+}
+
+.btn:link {
+  text-decoration: none;
 }

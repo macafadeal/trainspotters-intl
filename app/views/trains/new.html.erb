@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="mx-auto col-6">
+    <h1>Create your new entry</h1>
+  </div>
+  simple_form_for @train do |f| f.input :manufacturer, required: true,
+  input_html: { placeholder: "Manufacturer" } f.input :series, required: true,
+  input_html: { placeholder: "Series" } f.input :main_operator, required: true,
+  input_html: { placeholder: "The name(s) of the main operators, separated by a
+  comma. (Example: MainOperator1, MainOperator2, MainOperator3, ...)" } f.button
+  :submit, "Submit your entry" end
+</div>

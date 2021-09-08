@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts ('Destroying all entries in TrainEntry AND User')
-TrainEntry.destroy_all
+puts ('Destroying all entries in Train AND User')
+Train.destroy_all
 User.destroy_all
 
 puts ('Creating user1')
@@ -15,7 +15,7 @@ user1.save
 
 puts ('Creating train1')
 train1 =
-  TrainEntry.new(
+  Train.new(
     user_id: user1.id,
     manufacturer: 'Talgo',
     series: 'I',
@@ -24,7 +24,7 @@ train1 =
 
 puts ('Creating train2')
 train2 =
-  TrainEntry.new(
+  Train.new(
     user_id: user1.id,
     manufacturer: 'Siemens',
     series: 'Civia x Generacíon',
@@ -32,7 +32,7 @@ train2 =
   )
 puts ('Creating train3')
 train3 =
-  TrainEntry.new(
+  Train.new(
     user_id: user1.id,
     manufacturer: 'CAF - Construcciones y Auxiliar de Ferrocarriles',
     series: '452',
