@@ -1,0 +1,17 @@
+<h1> trains index </h1>
+
+<% @trains.each do |train| %>
+<%= link_to train_path(train) do %>
+  <div class="card-train">
+    <p> manufacturer: <%= train.manufacturer %> </p>
+    <h1> series: <%= train.series %> </p>
+    <h1> main operator: <%= train.main_operator %> </h1>
+  </div>
+  <% end %>
+<% end %>
+
+<!--
+t.string 'manufacturer'
+		t.string 'series'
+		t.string 'main_operator'
+-->

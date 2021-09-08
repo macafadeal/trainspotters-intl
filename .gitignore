@@ -41,8 +41,6 @@ yarn-debug.log*
 *.swp
 .DS_Store
 
-
-
 # https://github.com/github/gitignore/blob/master/Rails.gitignore
 *.rbc
 capybara-*.html
@@ -113,8 +111,6 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
-
-
 
 # https://github.com/github/gitignore/blob/master/Ruby.gitignore
 *.gem
