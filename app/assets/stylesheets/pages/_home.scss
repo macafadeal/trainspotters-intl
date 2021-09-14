@@ -1,0 +1,57 @@
+.card-train {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 5px 5px 5px 5px;
+}
+
+.card-train > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-train h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-train p {
+  font-size: 12px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.card-train .card-train-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-train-infos .card-train-user {
+  position: absolute;
+  right: 16px;
+  top: 20px;
+  width: 40px;
+}
+
+h5 h5:link h5:hover {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+p p:link p:hover {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+a a:link a:hover {
+  text-decoration: none !important;
+}
+
+.home-height {
+  height: 500px;
+}
