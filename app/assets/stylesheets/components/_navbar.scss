@@ -1,0 +1,41 @@
+.navbar-lewagon {
+  justify-content: space-evenly;
+  background: white;
+  color: black;
+  vertical-align: middle;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.nav-item {
+  color: black !important;
+  font-size: 30pt !important;
+  line-height: 116px;
+  display: block;
+  text-align: center;
+}
+
+.nav-link {
+  font-size: 15pt !important;
+  color: black !important;
+  line-height: 100px;
+  display: block;
+  text-align: center;
+
+  a:hover,
+  a:link,
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.mirror {
+  transform: scale(-1, 1);
+}

@@ -1,0 +1,46 @@
+<head>
+  <title>Trainspotters Int'l | Create your new entry </title>
+</head>
+
+<br />
+
+<div class="row">
+  <div class="col-6 offset-3">
+    <div class="card-train">
+
+      <%= simple_form_for @train do |f| %>
+
+      <h2>Photo</h2>
+      <p>
+        Upload a good-quality image of the train series being cataloged!
+      </p>
+      <br />
+      <%= f.input :photo, as: :file, label: false %>
+      <br />
+
+      <h2>Manufacturer</h2>
+      <%= f.input :manufacturer, label: false, required: true %>
+      <br />
+
+      <h2>Series</h2>
+      <%= f.input :series, required: true, label: false %>
+      <br />
+
+      <h2>Operators</h2>
+      <p>
+        The name(s) of the main operators, separated by a comma. (Example: MainOperator1, MainOperator2, MainOperator3, ...)
+      </p>
+      <%= f.input :main_operator, required: true, label: false %>
+      <br />
+
+      <div class="btn btn-light">
+        <%= f.button :submit, "Submit your entry" %>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>
+<%= render "devise/shared/links" %>
