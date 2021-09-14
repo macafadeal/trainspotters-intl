@@ -1,0 +1,44 @@
+<% content_for :title, "#{@train.series} | Trainspotters Int'l" %>
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to "List", trains_path %></li>
+        <li class="breadcrumb-item active"><%= @train.series %></li>
+      </ol>
+    </nav>
+
+    <div class="card shadow border-0 overflow-hidden">
+      <% if @train.photo.attached? %>
+        <%= cl_image_tag @train.photo.key, crop: :fill, class: "img-fluid w-100", style: "max-height: 400px; object-fit: cover;" %>
+      <% else %>
+        <img src="https://images.unsplash.com/photo-1532105956626-ceec02640ef3?auto=format&fit=crop&q=80&w=800&h=400" class="img-fluid w-100" alt="Train placeholder">
+      <% end %>
+
+      <div class="card-body p-4">
+        <h1 class="display-4"><%= @train.series %></h1>
+        <hr>
+        <div class="row">
+          <div class="col-sm-6 mb-3">
+            <h5 class="text-muted">Manufacturer</h5>
+            <p class="lead"><%= @train.manufacturer %></p>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <h5 class="text-muted">Main Operator</h5>
+            <p class="lead"><%= @train.main_operator %></p>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <%= link_to "Back to List", trains_path, class: "btn btn-outline-secondary" %>
+          <% if @train.user == current_user %>
+            <span class="ms-2">
+              <%# Add edit/delete buttons here if implemented %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

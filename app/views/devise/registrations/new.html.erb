@@ -1,0 +1,36 @@
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+<%= f.error_notification %>
+
+<br />
+
+<h1>Sign up</h1>
+
+<br />
+
+<div class="card-new col-6 offset-3">
+
+	<div class="text-left text-justify">
+    <h5 class="card-title">Email</h5>
+    <%= f.input :email, label: false %>
+    <br />
+
+		<h5 class="card-title">Password</h5>
+    <%= f.input :password, label: false %>
+    <br />
+
+    <h5 class="card-title">Password confirmation</h5>
+    <%= f.input :password_confirmation, label: false %>
+    <br />
+
+    <div class="btn btn-light">
+      <%= f.button :submit, "Sign up" %>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<% end %>
+<%= render "shared/footer" %>
+<%= render "devise/shared/links" %>

@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: trainspotters_intl_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d trainspotters_intl_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/trainspotters_intl_test
+      SECRET_KEY_BASE: dummy
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 4.0.3
+          bundler-cache: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare yarn@3.6.4 --activate
+
+      - name: Install JS deps
+        run: yarn install --immutable
+
+      - name: JS checks
+        run: |
+          yarn lint
+          yarn format
+          yarn typecheck
+
+      - name: Ruby checks
+        run: |
+          bundle exec standardrb
+          bundle exec brakeman -q
+          bundle exec bundle-audit check --update
+
+      - name: Prepare DB
+        run: bundle exec rails db:prepare
+
+      - name: Run tests
+        run: bundle exec rails test
+
+      - name: Compile assets
+        env:
+          RAILS_ENV: production
+          NODE_ENV: production
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/trainspotters_intl_test
+        run: |
+          bundle exec rails assets:precompile

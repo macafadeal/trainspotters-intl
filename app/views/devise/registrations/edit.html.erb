@@ -1,0 +1,58 @@
+<br />
+
+<h1 class="text-centered">Edit <%= resource_name.to_s.humanize %></h1>
+
+<br />
+
+<div class="card-edit col-6 offset-3">
+
+	<div class="text-left text-justify">
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+    <%= f.error_notification %>
+
+    <h5 class="card-title">Email</h5>
+    <%= f.input :email, label: false %>
+    <br />
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p>
+    Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+    </p>
+    <br />
+    <% end %>
+
+    <h5 class="card-title">New password (optional)</h5>
+    <%= f.input :password, label: false %>
+    <br />
+
+    <h5 class="card-title"> Confirm new password </h5>
+    <%= f.input :password_confirmation, label: false %>
+    <br />
+
+    <h5 class="card-title">Current password</h5>
+    <%= f.input :current_password, label: false %>
+    <br />
+
+
+    <div class="btn btn-light">
+      <%= f.button :submit, "Update" %>
+    </div>
+    <br />
+    <br />
+
+    <% end %>
+
+    <h4>Cancel my account</h4>
+    <p>
+    Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    </p>
+    <br />
+  </div>
+</div>
+
+<br />
+
+<%= render "shared/footer" %>
+<%= render "devise/shared/links" %>

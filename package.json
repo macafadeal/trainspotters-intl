@@ -1,0 +1,46 @@
+{
+  "name": "trainspotters-intl",
+  "private": true,
+  "scripts": {
+    "webpack": "bin/webpack",
+    "webpack:watch": "bin/webpack --watch",
+    "webpack:compile": "RAILS_ENV=production NODE_ENV=production bin/webpack",
+    "webpack:dev-server": "bin/webpack-dev-server",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint app/javascript",
+    "format": "prettier app/javascript --check",
+    "format:write": "prettier app/javascript --write",
+    "typecheck": "tsc --noEmit",
+    "audit:js": "yarn npm audit --all --recursive"
+  },
+  "dependencies": {
+    "@babel/core": "^7.15.5",
+    "@popperjs/core": "^2.11.8",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "5.4.2",
+    "babel-loader": "^8.2.2",
+    "bootstrap": "^5.3.8",
+    "material-components-web": "12.0.0",
+    "node-releases": "^1.1.75",
+    "turbolinks": "^5.2.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "@prettier/plugin-ruby": "^4.0.4",
+    "@prettier/plugin-xml": "^3.4.2",
+    "eslint": "8",
+    "eslint-config-standard": "17",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-n": "16",
+    "eslint-plugin-promise": "6",
+    "prettier": "^3.8.3",
+    "prettier-plugin-properties": "^0.3.1",
+    "prettier-plugin-sh": "^0.18.1",
+    "typescript": "^6.0.3",
+    "webpack-dev-server": "^4.2.1"
+  },
+  "packageManager": "yarn@3.6.4"
+}
