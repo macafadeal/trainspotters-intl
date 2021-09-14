@@ -1,0 +1,57 @@
+<div class="navbar navbar-expand-md navbar-light navbar-lewagon">
+    <ul class="navbar-nav mx-auto">
+
+      <span>
+        <h1 class="nav-item">🚄</h1>
+      </span>
+
+      <span>
+        <li class="nav-item">
+          <h1> <%= link_to "🏠 Trainspotters Int'l 🏠", "/", class: "nav-link" %> </h1>
+        </li>
+      </span>
+
+      <% if user_signed_in? %>
+      </span>
+        <li class="nav-item">
+          <%= link_to "🗄 List of entries 🗄", "/trains", class: "nav-link" %>
+        </li>
+      </span>
+      <span>
+        <li class="nav-item">
+          <%= link_to "📥 Catalog a train 📥", "/trains/new", class: "nav-link" %>
+        </li>
+      </span>
+      <span>
+        <li class="nav-item">
+          <%= link_to "⚙️ Edit your info ⚙️", "/users/edit", class: "nav-link" %>
+        </li>
+      </span>
+      <span>
+        <li class="nav-item ">
+          <%= link_to "⛔️ Sign out ⛔️", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      </span>
+      <% else %>
+      <span>
+        <li class="nav-item nav-color">
+          <%= link_to "🗄 List of entries 🗄", "/trains", class: "nav-link" %>
+        </li>
+      </span>
+      <span>
+        <li class="nav-item">
+          <%= link_to "🟢 Sign in 🟢", "/users/sign_in", class: "nav-link" %>
+        </li>
+      </span>
+      <span>
+        <li class="nav-item">
+          <%= link_to "🆕 Sign up 🆕", "/users/sign_up", class: "nav-link" %>
+        </li>
+      </span>
+      <% end %>
+      <span>
+        <h1 class="nav-item mirror">🚄</h1>
+      </span>
+    </ul>
+  </div>
+</div>
