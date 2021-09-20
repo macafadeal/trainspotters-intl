@@ -4,7 +4,17 @@
 
 ---
 
-Trainspotters Int’l, a project | Anyone trainspots! | A project done as part of the Le Wagon Lisbon’s Web Development Full Time Bootcamp, Batch #683.
+Trainspotters Int’l, a a Ruby on Rails web app whose main objective is to establish a modern, clean, and intuitive online catalog for the dissemination of trainspotting-related multimedia.
+
+> Anyone trainspots!
+
+A project done as part of the Le Wagon Lisbon’s Web Dev 9-week full-time Bootcamp, as a member of Batch #683.
+
+---
+
+### Find the live website at
+
+<https://trainspotters-intl.herokuapp.com/>
 
 ---
 
