@@ -20,7 +20,7 @@
     "prettier-plugin-properties": "^0.1.0",
     "prettier-plugin-sh": "^0.7.1",
     "turbolinks": "^5.2.0",
-    "webpack": "^4.46.0",
+    "webpack": "^5.94.0",
     "webpack-cli": "^3.3.12"
   },
   "version": "0.1.0",
