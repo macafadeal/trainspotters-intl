@@ -32,7 +32,7 @@ gem "bootsnap", ">= 1.17.0", require: false
 
 gem "devise"
 
-gem "autoprefixer-rails", "10.2.5"
+gem "autoprefixer-rails", "10.4.21.0"
 gem "font-awesome-sass"
 gem "simple_form"
 group :development, :test do
