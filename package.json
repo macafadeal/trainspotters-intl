@@ -34,7 +34,7 @@
     "eslint": "8",
     "eslint-config-standard": "17",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-n": "16",
+    "eslint-plugin-n": "18",
     "eslint-plugin-promise": "6",
     "prettier": "^3.8.3",
     "prettier-plugin-properties": "^0.3.1",
