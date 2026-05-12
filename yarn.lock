@@ -2308,10 +2308,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/actioncable@npm:^6.0.0":
-  version: 6.1.710
-  resolution: "@rails/actioncable@npm:6.1.710"
-  checksum: 176f48977f3df39de6f4e97a838149ed404d28f189be2aa2278745f7eddc15dbff1d45c452193539dfab89b032fdbcdc28eb7249456457440ca07ac32e871763
+"@rails/actioncable@npm:^8.1.300":
+  version: 8.1.300
+  resolution: "@rails/actioncable@npm:8.1.300"
+  checksum: dd3cf58f6275f2efeaa96719e36d4ef8418abdbba3c4d77283cff20091ff2212a1b13f83e926c5bc32c499f1b917d810ad7e2bb6fb96071d29e54800b061e1d1
   languageName: node
   linkType: hard
 
@@ -11313,7 +11313,7 @@ __metadata:
     "@popperjs/core": ^2.11.8
     "@prettier/plugin-ruby": ^4.0.4
     "@prettier/plugin-xml": ^3.4.2
-    "@rails/actioncable": ^6.0.0
+    "@rails/actioncable": ^8.1.300
     "@rails/activestorage": ^6.0.0
     "@rails/ujs": ^6.0.0
     "@rails/webpacker": 5.4.2

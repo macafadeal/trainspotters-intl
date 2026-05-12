@@ -15,7 +15,7 @@
   "dependencies": {
     "@babel/core": "^7.15.5",
     "@popperjs/core": "^2.11.8",
-    "@rails/actioncable": "^6.0.0",
+    "@rails/actioncable": "^8.1.300",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.2",
