@@ -2,10 +2,48 @@ name: CI
 
 on:
   push:
+    branches: [main]
   pull_request:
 
 jobs:
+  lint:
+    name: Lint & static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install JS deps
+        run: yarn install --immutable
+
+      - name: JS checks
+        run: |
+          yarn lint
+          yarn format
+          yarn typecheck
+          yarn audit:js
+
+      - name: Ruby checks
+        run: |
+          bundle exec standardrb
+          bundle exec brakeman -q
+          bundle exec bundle-audit check --update
+
   test:
+    name: Tests
     runs-on: ubuntu-latest
 
     services:
@@ -33,33 +71,20 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 4.0.3
+          ruby-version: .ruby-version
           bundler-cache: true
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .node-version
           cache: yarn
+          cache-dependency-path: yarn.lock
 
       - name: Enable Corepack
-        run: |
-          corepack enable
-          corepack prepare yarn@3.6.4 --activate
+        run: corepack enable
 
       - name: Install JS deps
         run: yarn install --immutable
-
-      - name: JS checks
-        run: |
-          yarn lint
-          yarn format
-          yarn typecheck
-
-      - name: Ruby checks
-        run: |
-          bundle exec standardrb
-          bundle exec brakeman -q
-          bundle exec bundle-audit check --update
 
       - name: Prepare DB
         run: bundle exec rails db:prepare
@@ -71,6 +96,4 @@ jobs:
         env:
           RAILS_ENV: production
           NODE_ENV: production
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432/trainspotters_intl_test
-        run: |
-          bundle exec rails assets:precompile
+        run: bundle exec rails assets:precompile

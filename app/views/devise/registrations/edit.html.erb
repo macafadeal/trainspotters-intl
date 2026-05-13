@@ -1,58 +1,45 @@
-<br />
+<div class="row justify-content-center py-5">
+  <div class="col-md-6 col-lg-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <h1 class="h3 mb-4 text-center">Edit <%= resource_name.to_s.humanize %></h1>
 
-<h1 class="text-centered">Edit <%= resource_name.to_s.humanize %></h1>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
 
-<br />
+          <%= f.input :email, label: "Email" %>
 
-<div class="card-edit col-6 offset-3">
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p class="text-muted small">Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-	<div class="text-left text-justify">
+          <hr class="my-3">
+          <p class="text-muted small mb-3">Leave password fields blank to keep your current password.</p>
 
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.input :password, label: "New password (optional)", required: false %>
+          <%= f.input :password_confirmation, label: "Confirm new password", required: false %>
 
-    <%= f.error_notification %>
+          <hr class="my-3">
 
-    <h5 class="card-title">Email</h5>
-    <%= f.input :email, label: false %>
-    <br />
+          <%= f.input :current_password, label: "Current password", hint: "Required to save changes" %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <p>
-    Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-    </p>
-    <br />
-    <% end %>
+          <div class="d-grid mt-3">
+            <%= f.button :submit, "Save changes", class: "btn btn-primary btn-lg" %>
+          </div>
+        <% end %>
 
-    <h5 class="card-title">New password (optional)</h5>
-    <%= f.input :password, label: false %>
-    <br />
+        <div class="mt-4 border-top pt-3">
+          <h5 class="text-danger">Danger zone</h5>
+          <p class="small text-muted">Permanently delete your account and all associated data.</p>
+          <%= button_to "Cancel my account", registration_path(resource_name), method: :delete,
+              class: "btn btn-outline-danger btn-sm",
+              data: { turbo_confirm: "Are you sure you want to delete your account?" } %>
+        </div>
 
-    <h5 class="card-title"> Confirm new password </h5>
-    <%= f.input :password_confirmation, label: false %>
-    <br />
-
-    <h5 class="card-title">Current password</h5>
-    <%= f.input :current_password, label: false %>
-    <br />
-
-
-    <div class="btn btn-light">
-      <%= f.button :submit, "Update" %>
+        <div class="mt-3 text-center small">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
     </div>
-    <br />
-    <br />
-
-    <% end %>
-
-    <h4>Cancel my account</h4>
-    <p>
-    Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-    </p>
-    <br />
   </div>
 </div>
-
-<br />
-
-<%= render "shared/footer" %>
-<%= render "devise/shared/links" %>

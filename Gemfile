@@ -10,17 +10,21 @@ gem "rails", "~> 8.1.3"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.5"
 # Use Puma as the app server
-gem "puma", ">= 6.0"
-# Use SCSS for stylesheets
-gem "sass-rails", ">= 6"
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem "webpacker", "~> 5.0"
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem "turbolinks", "~> 5"
+gem "puma", "~> 6.6"
+# Asset pipeline (serves pre-built assets from app/assets/builds/)
+gem "sprockets-rails"
+# Bundle and transpile JavaScript
+gem "jsbundling-rails"
+# Bundle and process CSS
+gem "cssbundling-rails"
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem "turbo-rails"
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.7"
 # Use Redis adapter to run Action Cable in production
-gem "redis", "~> 4.0"
+gem "redis", "~> 5.0"
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -32,9 +36,8 @@ gem "bootsnap", ">= 1.17.0", require: false
 
 gem "devise"
 
-gem "autoprefixer-rails", "10.2.5"
-gem "font-awesome-sass"
 gem "simple_form"
+gem "pundit"
 group :development, :test do
   gem "dotenv-rails"
   gem "pry-byebug"
@@ -53,28 +56,27 @@ group :development do
 
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem "listen", "~> 3.3"
   gem "rack-mini-profiler", "~> 3.3"
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem "spring"
+  # Detect N+1 queries and unused eager loading at request time
+  gem "bullet"
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
-
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem "webdrivers"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "cloudinary", "~> 1.16.0"
+gem "cloudinary", "~> 2.0"
+gem "active_storage_validations"
 
 gem "ostruct"
 gem "mutex_m"
 
 gem "rack-attack"
+
+gem "kaminari", "~> 1.2"

@@ -10,5 +10,5 @@ Rails
 
     root to: "pages#home"
 
-    resources :trains, only: %i[new create index show]
+    resources :trains, only: %i[index show new create edit update destroy]
   end

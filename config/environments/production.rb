@@ -15,20 +15,25 @@ Rails.application.configure do
   # Turn on fragment caching in view templates.
   config.action_controller.perform_caching = true
 
+  # Use Redis as the shared cache store across all Puma workers/dynos.
+  config.cache_store = :redis_cache_store, {
+    url: ENV.fetch("REDIS_URL", "redis://localhost:6379/0"),
+    expires_in: 1.hour
+  }
+
   # Cache assets for far-future expiry since they are all digest stamped.
   config.public_file_server.headers = {"cache-control" => "public, max-age=#{1.year.to_i}"}
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.asset_host = "http://assets.example.com"
 
-  # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  # Store uploaded files on Cloudinary (see config/storage.yml for options).
+  config.active_storage.service = :cloudinary
 
-  # Assume all access to the app is happening through a SSL-terminating reverse proxy.
-  # config.assume_ssl = true
-
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = ENV["FORCE_SSL"] == "true"
+  # TLS is terminated at the reverse proxy (Render/Heroku/Railway); tell Rails to
+  # treat all requests as HTTPS so cookies are secure and URLs use https://.
+  config.assume_ssl = true
+  config.force_ssl = false
 
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
@@ -56,8 +61,11 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = {host: "example.com"}
+  # Set host to be used by links generated in mailer templates (Devise password reset, etc.).
+  config.action_mailer.default_url_options = {
+    host: ENV.fetch("APP_HOST", "trainspotters-intl.com"),
+    protocol: "https"
+  }
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via bin/rails credentials:edit.
   # config.action_mailer.smtp_settings = {
