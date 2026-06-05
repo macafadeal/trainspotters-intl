@@ -7,8 +7,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
-    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload", defer: true %>
+    <meta name="description" content="Trainspotters Int'l - A community-driven gallery for train enthusiasts to catalog and share railway photography worldwide." />
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
   <body data-page="<%= "#{controller_name}##{action_name}" %>">

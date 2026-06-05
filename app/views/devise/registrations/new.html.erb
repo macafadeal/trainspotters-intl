@@ -1,36 +1,25 @@
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="row justify-content-center py-5">
+  <div class="col-md-6 col-lg-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <h1 class="h3 mb-4 text-center">Sign up</h1>
 
-<%= f.error_notification %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
 
-<br />
+          <%= f.input :email, label: "Email" %>
+          <%= f.input :password, label: "Password" %>
+          <%= f.input :password_confirmation, label: "Password confirmation" %>
 
-<h1>Sign up</h1>
+          <div class="d-grid mt-3">
+            <%= f.button :submit, "Sign up", class: "btn btn-primary btn-lg" %>
+          </div>
+        <% end %>
 
-<br />
-
-<div class="card-new col-6 offset-3">
-
-	<div class="text-left text-justify">
-    <h5 class="card-title">Email</h5>
-    <%= f.input :email, label: false %>
-    <br />
-
-		<h5 class="card-title">Password</h5>
-    <%= f.input :password, label: false %>
-    <br />
-
-    <h5 class="card-title">Password confirmation</h5>
-    <%= f.input :password_confirmation, label: false %>
-    <br />
-
-    <div class="btn btn-light">
-      <%= f.button :submit, "Sign up" %>
+        <div class="mt-3 text-center small">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<br />
-
-<% end %>
-<%= render "shared/footer" %>
-<%= render "devise/shared/links" %>

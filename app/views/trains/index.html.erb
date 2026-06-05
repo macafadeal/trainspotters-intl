@@ -7,26 +7,12 @@
   <% end %>
 </div>
 
+<%= paginate @trains %>
+
 <div class="row">
   <% @trains.each do |train| %>
     <div class="col-md-4 mb-4">
-      <div class="card h-100 shadow-sm border-0">
-        <%= link_to train do %>
-          <% if train.photo.attached? %>
-            <%= cl_image_tag train.photo.key, height: 200, width: 400, crop: :fill, class: "card-img-top" %>
-          <% else %>
-            <img src="https://images.unsplash.com/photo-1532105956626-ceec02640ef3?auto=format&fit=crop&q=80&w=400&h=200" class="card-img-top" alt="Train placeholder">
-          <% end %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title text-dark"><%= train.series %></h5>
-          <p class="card-text text-muted">
-            <strong>Manufacturer:</strong> <%= train.manufacturer %><br>
-            <strong>Operator:</strong> <%= train.main_operator %>
-          </p>
-          <%= link_to "View details", train, class: "btn btn-outline-secondary btn-sm" %>
-        </div>
-      </div>
+      <%= render "card", train: train %>
     </div>
   <% end %>
 </div>

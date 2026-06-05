@@ -1,20 +1,9 @@
-.navbar {
-  transition: all 0.3s ease;
-}
-
-.navbar-brand {
-  .mirror {
-    display: inline-block;
-    transform: scale(-1, 1);
-  }
-}
-
-.nav-link {
+.navbar .nav-link {
   font-weight: 500;
-  color: #333 !important;
+  color: var(--bs-body-color);
 
   &:hover {
-    color: #007bff !important;
+    color: var(--bs-primary);
   }
 }
 

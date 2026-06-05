@@ -2,45 +2,47 @@
   "name": "trainspotters-intl",
   "private": true,
   "scripts": {
-    "webpack": "bin/webpack",
-    "webpack:watch": "bin/webpack --watch",
-    "webpack:compile": "RAILS_ENV=production NODE_ENV=production bin/webpack",
-    "webpack:dev-server": "bin/webpack-dev-server",
-    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint app/javascript",
+    "lint": "eslint app/javascript",
+    "lint:css": "stylelint 'app/assets/stylesheets/**/*.scss'",
     "format": "prettier app/javascript --check",
     "format:write": "prettier app/javascript --write",
     "typecheck": "tsc --noEmit",
-    "audit:js": "yarn npm audit --all --recursive"
+    "audit:js": "yarn npm audit --all --recursive",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "build:css:compile": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
+    "build:css:prefix": "postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
+    "build:css": "yarn build:css:compile && yarn build:css:prefix",
+    "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
   },
   "dependencies": {
-    "@babel/core": "^7.15.5",
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.23",
     "@popperjs/core": "^2.11.8",
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.4.2",
-    "babel-loader": "^8.2.2",
+    "@rails/actioncable": "^8.1.300",
+    "@rails/activestorage": "^8.1.300",
+    "autoprefixer": "^10.5.0",
     "bootstrap": "^5.3.8",
-    "material-components-web": "12.0.0",
-    "node-releases": "^1.1.75",
-    "turbolinks": "^5.2.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "bootstrap-icons": "^1.13.1",
+    "postcss": "^8.5.15",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.100.0"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "@prettier/plugin-ruby": "^4.0.4",
-    "@prettier/plugin-xml": "^3.4.2",
-    "eslint": "8",
-    "eslint-config-standard": "17",
+    "@eslint/js": "^9.0.0",
+    "esbuild": "^0.28.0",
+    "eslint": "^9.0.0",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-n": "16",
-    "eslint-plugin-promise": "6",
+    "eslint-plugin-n": "^17.0.0",
+    "eslint-plugin-promise": "^7.0.0",
+    "nodemon": "^3.1.14",
     "prettier": "^3.8.3",
-    "prettier-plugin-properties": "^0.3.1",
-    "prettier-plugin-sh": "^0.18.1",
-    "typescript": "^6.0.3",
-    "webpack-dev-server": "^4.2.1"
+    "stylelint": "^17.12.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "typescript": "^6.0.3"
   },
-  "packageManager": "yarn@3.6.4"
+  "packageManager": "yarn@4.16.0",
+  "browserslist": [
+    "defaults"
+  ]
 }

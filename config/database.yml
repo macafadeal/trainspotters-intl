@@ -20,6 +20,11 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  connect_timeout: 5
+  checkout_timeout: 5
+  idle_timeout: 300
+  variables:
+    statement_timeout: "30000"
 
 development:
   <<: *default

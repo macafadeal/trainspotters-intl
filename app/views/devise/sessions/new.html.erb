@@ -1,33 +1,23 @@
-<br />
+<div class="row justify-content-center py-5">
+  <div class="col-md-6 col-lg-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <h1 class="h3 mb-4 text-center">Log in</h1>
 
-<h1 class="text-center">Log in</h1>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.input :email, label: "Email" %>
+          <%= f.input :password, label: "Password" %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
-<br />
+          <div class="d-grid mt-3">
+            <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg" %>
+          </div>
+        <% end %>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-<div class="card-new col-6 offset-3">
-	<div class="text-left text-justify">
-
-		<h5 class="card-title">Email</h5>
-			<%= f.input :email, label: false %>
-		<br />
-
-		<h5 class="card-title">Password</h5>
-			<%= f.input :password, label: false %>
-		<br />
-
-			<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-		<br />
-
-		<div class="login-button btn btn-light">
-			<%= f.button :submit, "Log in" %>
-		</div>
-	</div>
+        <div class="mt-3 text-center small">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<br />
-<% end %>
-
-<%= render "shared/footer" %>
-<%= render "devise/shared/links" %>
