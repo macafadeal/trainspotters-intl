@@ -10,7 +10,7 @@ gem "rails", "~> 8.1.3"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.5"
 # Use Puma as the app server
-gem "puma", "~> 6.6"
+gem "puma", "~> 8.0"
 # Asset pipeline (serves pre-built assets from app/assets/builds/)
 gem "sprockets-rails"
 # Bundle and transpile JavaScript
