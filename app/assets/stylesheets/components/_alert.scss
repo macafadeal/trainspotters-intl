@@ -1,0 +1,6 @@
+.alert {
+  bottom: 1rem;
+  position: fixed;
+  right: 1rem;
+  z-index: 1055; // Above Bootstrap modals (1050) and backdrops (1040)
+}

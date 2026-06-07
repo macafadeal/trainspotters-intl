@@ -1,0 +1,62 @@
+# ── Ruby / Bundler ────────────────────────────────────────────────────────────
+/.bundle
+/vendor/bundle
+/vendor/cache
+
+# ── Rails runtime ─────────────────────────────────────────────────────────────
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+!/tmp/pids/
+/tmp/pids/*
+!/tmp/pids/.keep
+/storage/*
+!/storage/.keep
+/public/uploads
+/public/assets
+/app/assets/builds/*
+!/app/assets/builds/.keep
+rerun.txt
+
+# ── Ruby tooling ──────────────────────────────────────────────────────────────
+.byebug_history
+.rvmrc
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+# ── Node / JavaScript ─────────────────────────────────────────────────────────
+/node_modules
+.yarn/cache
+.yarn/install-state.gz
+.yarnrc.local
+/yarn-error.log
+yarn-debug.log*
+*.tsbuildinfo
+.eslintcache
+.prettiercache
+
+# ── Test artifacts ────────────────────────────────────────────────────────────
+/coverage/
+/test/tmp/
+/test/version_tmp/
+capybara-*.html
+
+# ── Credentials & secrets ─────────────────────────────────────────────────────
+.env*
+!.env.example
+/config/*.key
+
+# ── OS filesystems ────────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ── Editor / IDE ──────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.orig

@@ -1,0 +1,15 @@
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+
+  @media (width <=576px) {
+    min-height: 50vh;
+  }
+}
+
+.hero-lead {
+  max-width: 800px; // Maximum comfortable reading width for body copy
+}

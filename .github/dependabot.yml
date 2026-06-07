@@ -1,0 +1,37 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    target-branch: main
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 2
+    groups:
+      patch-minor:
+        update-types: [patch, minor]
+    labels:
+      - dependencies
+
+  - package-ecosystem: bundler
+    directory: "/"
+    target-branch: main
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    groups:
+      patch-minor:
+        update-types: [patch, minor]
+    labels:
+      - dependencies
+
+  - package-ecosystem: npm
+    directory: "/"
+    target-branch: main
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    groups:
+      patch-minor:
+        update-types: [patch, minor]
+    labels:
+      - dependencies

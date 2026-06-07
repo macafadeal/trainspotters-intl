@@ -1,0 +1,13 @@
+.navbar .nav-link {
+  font-weight: 500;
+  color: var(--bs-body-color);
+
+  &:hover {
+    color: var(--bs-primary);
+  }
+}
+
+.mirror {
+  display: inline-block;
+  transform: scale(-1, 1);
+}
