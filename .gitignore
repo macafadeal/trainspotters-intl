@@ -31,12 +31,12 @@ rerun.txt
 /node_modules
 .yarn/cache
 .yarn/install-state.gz
+.yarn/releases
 .yarnrc.local
 /yarn-error.log
 yarn-debug.log*
 *.tsbuildinfo
 .eslintcache
-.prettiercache
 
 # ── Test artifacts ────────────────────────────────────────────────────────────
 /coverage/
@@ -58,5 +58,7 @@ desktop.ini
 
 # ── Editor / IDE ──────────────────────────────────────────────────────────────
 .idea/
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 *.orig

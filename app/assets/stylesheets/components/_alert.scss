@@ -1,6 +1,11 @@
 .alert {
-  bottom: 1rem;
   position: fixed;
-  right: 1rem;
-  z-index: 1055; // Above Bootstrap modals (1050) and backdrops (1040)
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1055;
+  min-width: 280px;
+  max-width: 420px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+  border: none;
+  font-size: 0.875rem;
 }

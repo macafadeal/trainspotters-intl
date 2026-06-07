@@ -1,18 +1,34 @@
-<% content_for :title, "List of entries | Trainspotters Int'l" %>
-
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <h1>List of entries</h1>
-  <% if user_signed_in? %>
-    <%= link_to "Catalog a train", new_train_path, class: "btn btn-primary" %>
-  <% end %>
+<% content_for :title, "Gallery | Trainspotters Int'l" %>
+<div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center gap-2 mb-4">
+  <div>
+    <h1 class="h3 fw-semibold mb-0">Gallery</h1>
+    <p class="text-muted small mb-0"><%= @trains.total_count %> <%= "entry".pluralize(@trains.total_count) %></p>
+  </div>
+  <div class="d-flex align-items-center gap-2 flex-wrap">
+    <%= form_with url: trains_path, method: :get, local: true, class: "d-flex align-items-center gap-2" do |f| %>
+      <%= f.select :sort,
+            [["Newest first", "newest"], ["Oldest first", "oldest"], ["Series A–Z", "series"], ["Manufacturer A–Z", "manufacturer"], ["Operator A–Z", "operator"]],
+            {selected: @sort},
+            class: "form-select form-select-sm",
+            onchange: "this.form.submit()",
+            style: "width:auto" %>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to new_train_path, class: "btn btn-dark btn-sm" do %>
+        <i class="bi bi-plus-lg me-1"></i> Catalog a train
+      <% end %>
+    <% end %>
+  </div>
 </div>
-
-<%= paginate @trains %>
-
-<div class="row">
+<div class="row g-3">
   <% @trains.each do |train| %>
-    <div class="col-md-4 mb-4">
+    <div class="col-sm-6 col-lg-4">
       <%= render "card", train: train %>
     </div>
   <% end %>
 </div>
+<% if @trains.total_pages > 1 %>
+  <div class="d-flex justify-content-center mt-5">
+    <%= paginate @trains, params: {sort: @sort} %>
+  </div>
+<% end %>

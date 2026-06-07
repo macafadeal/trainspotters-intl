@@ -1,0 +1,16 @@
+---
+EnableDefaultLinters: true
+glob: "**/*.html.erb"
+linters:
+  ErubiSyntax:
+    enabled: true
+  NoUnusedCaptures:
+    enabled: true
+  PartialInstanceVariable:
+    enabled: true
+  RightTrim:
+    enabled: true
+  SpaceAroundErbTag:
+    enabled: true
+  TrailingWhitespace:
+    enabled: true

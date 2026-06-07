@@ -19,24 +19,32 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version-file: .node-version
-          cache: yarn
-          cache-dependency-path: yarn.lock
 
       - name: Enable Corepack
         run: corepack enable
 
+      - name: Restore Yarn cache
+        uses: actions/cache@v4
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: yarn-${{ runner.os }}-
+
       - name: Install JS deps
         run: yarn install --immutable
+
+      - name: Install yamllint
+        run: pip install --quiet yamllint
 
       - name: JS checks
         run: |
@@ -46,9 +54,14 @@ jobs:
           yarn typecheck
           yarn audit:js
 
+      - name: YAML lint
+        run: yamllint .
+
       - name: Ruby checks
         run: |
           bundle exec standardrb
+          bundle exec erblint --lint-all
+          bundle exec erb-format --check app/views/**/*.html.erb
           bundle exec brakeman -q
           bundle exec bundle-audit check --update
 
@@ -78,21 +91,26 @@ jobs:
       SECRET_KEY_BASE: dummy
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version-file: .node-version
-          cache: yarn
-          cache-dependency-path: yarn.lock
 
       - name: Enable Corepack
         run: corepack enable
+
+      - name: Restore Yarn cache
+        uses: actions/cache@v4
+        with:
+          path: .yarn/cache
+          key: yarn-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: yarn-${{ runner.os }}-
 
       - name: Install JS deps
         run: yarn install --immutable

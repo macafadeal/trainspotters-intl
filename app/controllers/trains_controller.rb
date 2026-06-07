@@ -6,11 +6,19 @@ class TrainsController < ApplicationController
 
   PER_PAGE = 12
 
+  SORT_OPTIONS = {
+    "newest" => {created_at: :desc},
+    "oldest" => {created_at: :asc},
+    "series" => {series: :asc},
+    "manufacturer" => {manufacturer: :asc},
+    "operator" => {main_operator: :asc}
+  }.freeze
+
   def index
+    @sort = SORT_OPTIONS.key?(params[:sort]) ? params[:sort] : "series"
     @trains = policy_scope(Train)
       .includes(:user, photo_attachment: :blob)
-      .where.associated(:photo_attachment)
-      .order(created_at: :desc)
+      .order(SORT_OPTIONS[@sort])
       .page(params[:page])
       .per(PER_PAGE)
   end

@@ -1,0 +1,13 @@
+<% content_for :title, "404 Not Found | Trainspotters Int'l" %>
+<div class="d-flex flex-column align-items-center justify-content-center text-center py-5">
+  <p class="fw-bold mb-0" style="font-size:6rem;line-height:1;color:#e9ecef">404</p>
+  <p class="text-muted small text-uppercase fw-semibold mb-3 mt-2">Page Not Found</p>
+  <h1 class="h2 fw-bold mb-3">We couldn't find that page.</h1>
+  <p class="text-muted mb-5 mx-auto" style="max-width:480px">
+    The page you were looking for doesn't exist. It may have been moved, deleted,
+    or the URL might be incorrect.
+  </p>
+  <%= link_to root_path, class: "btn btn-dark btn-lg px-5" do %>
+    <i class="bi bi-house me-2"></i> Back to Home
+  <% end %>
+</div>

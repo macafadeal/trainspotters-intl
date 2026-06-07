@@ -1,25 +1,27 @@
 .footer {
-  background: var(--bs-light);
-  padding: 3rem 0;
-  color: var(--bs-secondary-color);
-  border-top: 1px solid var(--bs-border-color);
-  margin-top: 4rem;
+  background: $white;
+  border-top: 1px solid $gray-200;
+  padding: 2.5rem 0;
+  color: $gray-600;
+  margin-top: auto;
 
-  .footer-links {
-    a {
-      color: var(--bs-secondary-color);
-      text-decoration: none;
-      font-size: 1.5rem;
-      margin: 0 0.5rem;
-      transition: color 0.3s ease;
+  @media (width <=768px) {
+    padding: 1.75rem 0;
+  }
 
-      &:hover {
-        color: var(--bs-primary);
-      }
+  .footer-links a {
+    color: $gray-500;
+    text-decoration: none;
+    font-size: 1.25rem;
+    margin: 0 0.5rem;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: $gray-900;
     }
   }
 
   .bi-heart-fill {
-    color: $danger;
+    color: $gray-500;
   }
 }
