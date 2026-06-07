@@ -1,82 +1,52 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "4.0.3"
+ruby "4.0.5"
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem "rails", "~> 8.1.3"
-# Use postgresql as the database for Active Record
-gem "pg", "~> 1.5"
-# Use Puma as the app server
+gem "rails", "~> 8.1"
+gem "pg", "~> 1.6"
 gem "puma", "~> 8.0"
-# Asset pipeline (serves pre-built assets from app/assets/builds/)
-gem "sprockets-rails"
-# Bundle and transpile JavaScript
-gem "jsbundling-rails"
-# Bundle and process CSS
-gem "cssbundling-rails"
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "jbuilder", "~> 2.7"
-# Use Redis adapter to run Action Cable in production
-gem "redis", "~> 5.0"
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem "sprockets-rails", "~> 3.5"
+gem "jsbundling-rails", "~> 1.3"
+gem "cssbundling-rails", "~> 1.4"
+gem "turbo-rails", "~> 2.0"
+gem "stimulus-rails", "~> 1.3"
+gem "redis", "~> 5.4"
+gem "bootsnap", "~> 1.24", require: false
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem "devise", "~> 5.0"
+gem "simple_form", "~> 5.4"
+gem "pundit", "~> 2.5"
 
-# Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.17.0", require: false
+gem "cloudinary", "~> 2.4"
+gem "active_storage_validations", "~> 3.0"
+gem "rack-attack", "~> 6.8"
+gem "kaminari", "~> 1.2"
+gem "ostruct", "~> 0.6"
+gem "mutex_m", "~> 0.3"
 
-gem "devise"
-
-gem "simple_form"
-gem "pundit"
 group :development, :test do
-  gem "dotenv-rails"
-  gem "pry-byebug"
-  gem "pry-rails"
-  gem "standard"
-  gem "brakeman", require: false
-  gem "bundler-audit", require: false
-
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "byebug", platforms: %i[mri windows]
+  gem "dotenv-rails", "~> 3.2"
+  gem "pry-byebug", "~> 3.12"
+  gem "pry-rails", "~> 0.3"
+  gem "standard", "~> 1.55"
+  gem "brakeman", "~> 8.0", require: false
+  gem "bundler-audit", "~> 0.9", require: false
+  gem "erb_lint", "~> 0.9", require: false
+  gem "erb-formatter", "~> 0.7", require: false
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem "web-console", ">= 4.1.0"
-
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  gem "web-console", "~> 4.3"
   gem "rack-mini-profiler", "~> 4.0"
-
-  # Detect N+1 queries and unused eager loading at request time
-  gem "bullet"
+  gem "bullet", "~> 8.1"
+  gem "foreman", "~> 0.90"
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem "capybara", ">= 3.26"
-  gem "selenium-webdriver"
+  gem "capybara", "~> 3.40"
+  gem "selenium-webdriver", "~> 4.44"
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[windows jruby]
-
-gem "cloudinary", "~> 2.0"
-gem "active_storage_validations"
-
-gem "ostruct"
-gem "mutex_m"
-
-gem "rack-attack"
-
-gem "kaminari", "~> 1.2"

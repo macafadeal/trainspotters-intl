@@ -2,7 +2,6 @@ const js = require("@eslint/js");
 const globals = require("globals");
 const pluginN = require("eslint-plugin-n");
 const pluginPromise = require("eslint-plugin-promise");
-const pluginImport = require("eslint-plugin-import");
 
 module.exports = [
 	{
@@ -12,7 +11,6 @@ module.exports = [
 	pluginN.configs["flat/recommended"],
 	pluginPromise.configs["flat/recommended"],
 	{
-		plugins: { import: pluginImport },
 		languageOptions: {
 			ecmaVersion: 2024,
 			sourceType: "module",

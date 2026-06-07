@@ -1,13 +1,66 @@
-.navbar .nav-link {
-  font-weight: 500;
-  color: var(--bs-body-color);
+.navbar {
+  border-bottom: 1px solid $gray-200;
 
-  &:hover {
-    color: var(--bs-primary);
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    color: $gray-900;
+    gap: 0.4rem;
+
+    &:hover {
+      color: $gray-900;
+    }
   }
-}
 
-.mirror {
-  display: inline-block;
-  transform: scale(-1, 1);
+  .nav-link {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: $gray-600;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 6px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+
+    &:hover {
+      color: $gray-900;
+      background-color: $gray-100;
+    }
+
+    &.text-danger {
+      color: #dc3545 !important;
+
+      &:hover {
+        background-color: #fff5f5;
+        color: #b91c1c !important;
+      }
+    }
+  }
+
+  .navbar-nav {
+    gap: 0.125rem;
+  }
+
+  // Mobile collapsed menu
+  @media (width < 992px) {
+    .navbar-collapse {
+      padding: 0.75rem 0;
+      border-top: 1px solid $gray-100;
+      margin-top: 0.5rem;
+    }
+
+    .nav-link {
+      padding: 0.625rem 0.75rem;
+    }
+
+    // Make the Sign up button full-width in mobile menu
+    .nav-item:last-child .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 0.25rem;
+    }
+  }
 }

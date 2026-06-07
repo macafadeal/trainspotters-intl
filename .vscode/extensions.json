@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "Shopify.ruby-lsp",
+    "manuelpuyol.erb-linter",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "dprint.dprint",
+    "redhat.vscode-yaml"
+  ]
+}

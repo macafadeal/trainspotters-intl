@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Be sure to restart your server when you modify this file.
 
 # Define an application-wide content security policy.
@@ -12,7 +14,8 @@ Rails.application.configure do
     policy.img_src :self, :https, :data,
       "res.cloudinary.com",
       "images.unsplash.com",
-      "upload.wikimedia.org"
+      "upload.wikimedia.org",
+      "avatars.githubusercontent.com"
     policy.object_src :none
     policy.script_src :self, :https
     policy.style_src :self, :https,

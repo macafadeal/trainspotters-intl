@@ -10,3 +10,7 @@ declare module "@rails/activestorage" {
 declare module "bootstrap" {
   // Bootstrap JS side-effect import — no explicit exports needed
 }
+
+declare module "@hotwired/turbo-rails" {
+  // Turbo Rails side-effect import — no explicit exports needed
+}

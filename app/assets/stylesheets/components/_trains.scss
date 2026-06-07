@@ -1,5 +1,39 @@
+.train-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid $gray-200;
+
+  .card-img-top,
+  .card-img-top svg {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    background: $gray-100;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .09) !important;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $gray-900;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-text {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+}
+
 .train-photo {
-  max-height: 400px;
-  object-fit: cover;
   width: 100%;
+  object-fit: cover;
+  max-height: 420px;
+
+  @media (width <=576px) {
+    max-height: 260px;
+  }
 }

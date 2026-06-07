@@ -3,41 +3,34 @@
     <div class="card shadow-sm border-0">
       <div class="card-body p-4">
         <h1 class="h3 mb-4 text-center">Edit <%= resource_name.to_s.humanize %></h1>
-
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, data: { turbo: false } }) do |f| %>
           <%= f.error_notification %>
-
-          <%= f.input :email, label: "Email" %>
-
+          <%= f.input :email, label: "Email",
+                input_html: { type: "email", autocomplete: "email" } %>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p class="text-muted small">Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
-
           <hr class="my-3">
           <p class="text-muted small mb-3">Leave password fields blank to keep your current password.</p>
-
-          <%= f.input :password, label: "New password (optional)", required: false %>
-          <%= f.input :password_confirmation, label: "Confirm new password", required: false %>
-
+          <%= f.input :password, label: "New password (optional)", required: false,
+                input_html: { minlength: 8, autocomplete: "new-password" },
+                hint: "8+ characters with at least one letter and one number" %>
+          <%= f.input :password_confirmation, label: "Confirm new password", required: false,
+                input_html: { autocomplete: "new-password" } %>
           <hr class="my-3">
-
-          <%= f.input :current_password, label: "Current password", hint: "Required to save changes" %>
-
+          <%= f.input :current_password, label: "Current password",
+                hint: "Required to save changes",
+                input_html: { autocomplete: "current-password" } %>
           <div class="d-grid mt-3">
             <%= f.button :submit, "Save changes", class: "btn btn-primary btn-lg" %>
           </div>
         <% end %>
-
         <div class="mt-4 border-top pt-3">
-          <h5 class="text-danger">Danger zone</h5>
+          <h5 class="text-danger"><i class="bi bi-exclamation-circle me-1"></i>Danger zone<i class="bi bi-exclamation-circle ms-1"></i></h5>
           <p class="small text-muted">Permanently delete your account and all associated data.</p>
-          <%= button_to "Cancel my account", registration_path(resource_name), method: :delete,
+          <%= button_to "Delete my account", registration_path(resource_name), method: :delete,
               class: "btn btn-outline-danger btn-sm",
               data: { turbo_confirm: "Are you sure you want to delete your account?" } %>
-        </div>
-
-        <div class="mt-3 text-center small">
-          <%= render "devise/shared/links" %>
         </div>
       </div>
     </div>

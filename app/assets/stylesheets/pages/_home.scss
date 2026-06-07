@@ -6,10 +6,26 @@
   align-items: center;
 
   @media (width <=576px) {
-    min-height: 50vh;
+    min-height: 60vh;
+
+    .display-4 {
+      font-size: 2rem;
+    }
+
+    .lead {
+      font-size: 1rem;
+    }
   }
 }
 
 .hero-lead {
-  max-width: 800px; // Maximum comfortable reading width for body copy
+  max-width: 640px;
+  opacity: 0.9;
+}
+
+// Bootstrap doesn't ship w-sm-auto; provide it here
+@media (width >=576px) {
+  .w-sm-auto {
+    width: auto !important;
+  }
 }

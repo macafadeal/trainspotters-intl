@@ -1,10 +1,11 @@
-// Define variables for your color scheme
+$white: #ffffff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-800: #343a40;
+$gray-900: #212529;
 
-// For example:
-$red: #fd1015;
-$blue: #167ffb;
-$yellow: #ffc65a;
-$orange: #e67e22;
-$green: #1edd88;
-$gray: #0e0000;
-$light-gray: #f4f4f4;
+$light-gray: $gray-100;
+$gray: $gray-900;
