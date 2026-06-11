@@ -38,6 +38,9 @@ jobs:
       - name: Install JS deps
         run: yarn install --immutable
 
+      - name: Install yamllint
+        run: pip install --quiet yamllint
+
       - name: JS checks
         run: |
           yarn lint
@@ -46,9 +49,14 @@ jobs:
           yarn typecheck
           yarn audit:js
 
+      - name: YAML lint
+        run: yamllint .
+
       - name: Ruby checks
         run: |
           bundle exec standardrb
+          bundle exec erblint --lint-all
+          bundle exec erb-format --check app/views/**/*.html.erb
           bundle exec brakeman -q
           bundle exec bundle-audit check --update
 

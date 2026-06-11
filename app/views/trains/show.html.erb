@@ -1,5 +1,4 @@
 <% content_for :title, "#{@train.series} | Trainspotters Int'l" %>
-
 <div class="row justify-content-center">
   <div class="col-md-8">
     <nav aria-label="breadcrumb">
@@ -8,7 +7,6 @@
         <li class="breadcrumb-item active"><%= @train.series %></li>
       </ol>
     </nav>
-
     <div class="card shadow border-0 overflow-hidden">
       <% if @train.photo.attached? %>
         <%= cl_image_tag @train.photo.key, crop: :fill,
@@ -16,7 +14,6 @@
       <% else %>
         <img src="https://images.unsplash.com/photo-1532105956626-ceec02640ef3?auto=format&fit=crop&q=80&w=800&h=400" class="img-fluid w-100" alt="Train placeholder">
       <% end %>
-
       <div class="card-body p-4">
         <h1 class="display-4"><%= @train.series %></h1>
         <hr>
@@ -26,7 +23,6 @@
           <dt class="col-sm-4 text-muted fw-normal">Main Operator</dt>
           <dd class="col-sm-8 lead mb-0"><%= @train.main_operator %></dd>
         </dl>
-
         <div class="mt-4 d-flex gap-2 flex-wrap">
           <%= link_to "Back to List", trains_path, class: "btn btn-outline-secondary" %>
           <% if @train.user == current_user %>

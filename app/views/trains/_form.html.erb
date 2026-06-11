@@ -3,11 +3,9 @@
     <div class="card shadow-sm border-0">
       <div class="card-body p-4">
         <h1 class="mb-4"><%= train.new_record? ? "Catalog a train" : "Edit entry" %></h1>
-
         <%= simple_form_for train, wrapper: :vertical_form do |f| %>
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
           <div class="mb-4">
             <h5 class="mb-1">Photo</h5>
             <p class="text-muted small">
@@ -15,21 +13,17 @@
             </p>
             <%= f.input :photo, as: :file, label: false, input_html: {class: "form-control"} %>
           </div>
-
           <div class="mb-4">
             <%= f.input :manufacturer, required: true, placeholder: "e.g. Alstom, Siemens, Bombardier" %>
           </div>
-
           <div class="mb-4">
             <%= f.input :series, required: true, placeholder: "e.g. TGV Duplex, ICE 3, Class 800" %>
           </div>
-
           <div class="mb-4">
             <h5 class="mb-1">Operators</h5>
             <p class="text-muted small">Main operators, separated by commas (e.g. SNCF, DB, Amtrak).</p>
             <%= f.input :main_operator, required: true, label: false, placeholder: "Enter operators..." %>
           </div>
-
           <div class="<%= train.new_record? ? "d-grid gap-2" : "d-flex gap-2" %>">
             <%= f.button :submit, train.new_record? ? "Submit your entry" : "Save changes",
                 class: "btn btn-primary#{" btn-lg" if train.new_record?}" %>

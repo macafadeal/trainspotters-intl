@@ -1,0 +1,33 @@
+{
+  "$schema": "https://dprint.dev/schemas/v0.json",
+  "typescript": {
+    "semiColons": "always",
+    "trailingCommas": "all",
+    "quoteStyle": "alwaysDouble",
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "useTabs": false
+  },
+  "json": {
+    "indentWidth": 2,
+    "trailingCommas": "never"
+  },
+  "includes": [
+    "app/javascript/**/*.{ts,js}",
+    "*.json",
+    "config/**/*.json"
+  ],
+  "excludes": [
+    "node_modules",
+    "app/assets/builds",
+    "public/assets",
+    "vendor",
+    "log",
+    "tmp",
+    "yarn.lock"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.93.4.wasm",
+    "https://plugins.dprint.dev/json-0.19.4.wasm"
+  ]
+}

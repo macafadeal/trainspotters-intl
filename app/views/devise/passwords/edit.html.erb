@@ -3,20 +3,16 @@
     <div class="card shadow-sm border-0">
       <div class="card-body p-4">
         <h1 class="h3 mb-4 text-center">Change your password</h1>
-
         <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
           <%= f.input :reset_password_token, as: :hidden %>
           <%= f.full_error :reset_password_token %>
-
           <%= f.input :password, label: "New password" %>
           <%= f.input :password_confirmation, label: "Confirm new password" %>
-
           <div class="d-grid mt-3">
             <%= f.button :submit, "Change my password", class: "btn btn-primary btn-lg" %>
           </div>
         <% end %>
-
         <div class="mt-3 text-center small">
           <%= render "devise/shared/links" %>
         </div>

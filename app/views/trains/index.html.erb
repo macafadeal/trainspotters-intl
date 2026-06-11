@@ -1,14 +1,11 @@
 <% content_for :title, "List of entries | Trainspotters Int'l" %>
-
 <div class="d-flex justify-content-between align-items-center mb-4">
   <h1>List of entries</h1>
   <% if user_signed_in? %>
     <%= link_to "Catalog a train", new_train_path, class: "btn btn-primary" %>
   <% end %>
 </div>
-
 <%= paginate @trains %>
-
 <div class="row">
   <% @trains.each do |train| %>
     <div class="col-md-4 mb-4">
