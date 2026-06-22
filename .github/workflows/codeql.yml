@@ -25,7 +25,7 @@ jobs:
         language: [javascript, ruby]
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - uses: ruby/setup-ruby@v1
         if: matrix.language == 'ruby'
