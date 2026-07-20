@@ -30,7 +30,7 @@ group :development, :test do
   gem "dotenv-rails", "~> 3.2"
   gem "pry-byebug", "~> 3.12"
   gem "pry-rails", "~> 0.3"
-  gem "standard", "~> 1.55"
+  gem "standard", "~> 1.56"
   gem "brakeman", "~> 8.0", require: false
   gem "bundler-audit", "~> 0.9", require: false
   gem "erb_lint", "~> 0.9", require: false
@@ -46,7 +46,7 @@ end
 
 group :test do
   gem "capybara", "~> 3.40"
-  gem "selenium-webdriver", "~> 4.44"
+  gem "selenium-webdriver", "~> 4.46"
 end
 
 gem "tzinfo-data", platforms: %i[windows jruby]
