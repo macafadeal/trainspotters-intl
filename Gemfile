@@ -13,7 +13,7 @@ gem "cssbundling-rails", "~> 1.4"
 gem "turbo-rails", "~> 2.0"
 gem "stimulus-rails", "~> 1.3"
 gem "redis", "~> 5.4"
-gem "bootsnap", "~> 1.24", require: false
+gem "bootsnap", "~> 1.25", require: false
 
 gem "devise", "~> 5.0"
 gem "simple_form", "~> 5.4"
@@ -30,7 +30,7 @@ group :development, :test do
   gem "dotenv-rails", "~> 3.2"
   gem "pry-byebug", "~> 3.12"
   gem "pry-rails", "~> 0.3"
-  gem "standard", "~> 1.55"
+  gem "standard", "~> 1.56"
   gem "brakeman", "~> 8.0", require: false
   gem "bundler-audit", "~> 0.9", require: false
   gem "erb_lint", "~> 0.9", require: false
@@ -46,7 +46,7 @@ end
 
 group :test do
   gem "capybara", "~> 3.40"
-  gem "selenium-webdriver", "~> 4.44"
+  gem "selenium-webdriver", "~> 4.47"
 end
 
 gem "tzinfo-data", platforms: %i[windows jruby]
